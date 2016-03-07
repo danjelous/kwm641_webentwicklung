@@ -1,0 +1,15 @@
+{
+  "uploadOnSave": true,
+  "deleteLocal": true,
+  "hostname": "213.133.106.50",
+  "port": "21",
+  "target": "/public_html/",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**",
+    ".DS_Store"
+  ],
+  "username": "limbwo",
+  "password": "W68l87rx",
+  "transport": "ftp"
+}
