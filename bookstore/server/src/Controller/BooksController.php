@@ -159,7 +159,7 @@ class BooksController extends AppController
 
 	 public function createByISBN() {
 		 $isbn = $this->request->params['pass'];
-		 $this->request->allowMethod(["put", "post"]);
+		 $this->request->allowMethod(["post"]);
 
 		 //$this->set("book", "Book with ISBN " . $isbn . " has been deleted successfully.");
 		 $this->set("book", "Bitch u got created and posted.");

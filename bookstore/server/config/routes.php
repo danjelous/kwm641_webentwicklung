@@ -119,7 +119,7 @@ Router::scope("/api", function($routes){
 	);
 
 	$routes->connect("/books/isbn/:isbn",
-		["controller" => "Books", "action" => "updateByISBN", "[method]" => "POST"],
+		["controller" => "Books", "action" => "createByISBN", "[method]" => "POST"],
 		[
 			"pass" => ["isbn"],
 			"isbn" => "[0-9]+"
