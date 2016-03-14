@@ -114,4 +114,19 @@ class BooksController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+	 public function isbn() {
+
+		 // Get paramter-value from URL, which is stored in global array
+		 $isbn = $this->request->params['pass'];
+
+		 // Books --> Zugriff auf Books-Repository
+		 $book = $this->Books->find('all');
+
+		 // Define View
+		 $this->set('book', $book);
+
+		 // Pls JSON
+		 $this->set("_serialize", ["book"]);
+	 }
 }
