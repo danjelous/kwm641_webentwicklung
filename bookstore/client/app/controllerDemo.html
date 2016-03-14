@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" type="text/css">
+	</head>
+	<body>
+		<div class="root text-center">
+			<style>
+				.root { background-color: #DEA; }
+				.island { margin-top: 3rem; }
+				.islandBottom { margin-bottom: 3rem; }
+			</style>
+
+			<h1 class="island">Angular Scope Stuff</h1>
+			<div ng-app="mainApp" ng-controller="shapeController">
+
+				<p>Message: {{message | uppercase}}</p>
+				<p>Type: {{type}}</p>
+
+				<div ng-controller="circleController">
+					<p>Message: {{message}}</p>
+					<p>Type: {{type}}</p>
+				</div>
+
+				<div ng-controller="squareController">
+					<p>Message: {{message}}</p>
+					<p>Type: {{type}}</p>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="lib/angular/angular.js"></script>
+		<script>
+			var mainApp = angular.module("mainApp", [])
+
+			mainApp.controller("shapeController", function($scope){
+				// Constructor - Every COntroller needs a Scope!
+				// Every $-Vairables are "System"-variables
+				$scope.message = "In shape controller";
+				$scope.type = "Shape";
+			});
+
+			mainApp.controller("circleController", function($scope){
+				$scope.message = "In circle controller";
+			});
+
+			mainApp.controller("squareController", function($scope){
+				$scope.message = "In square controller";
+			});
+
+		</script>
+	</body>
+</html>

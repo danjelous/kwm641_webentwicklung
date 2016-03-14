@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='bookstore'>
+	<head>
+		<meta charset="utf-8">
+		<title>KWM Bookstore</title>
+		<link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" type="text/css">
+	</head>
+	<body>
+		<div class="root text-center">
+			<style>
+				.root { background-color: #DEA; }
+				.island { margin-top: 3rem; }
+				.islandBottom { margin-bottom: 3rem; }
+			</style>
+
+			<header>
+				<h1 class="island">Nasty Bookstore</h1>
+			</header>
+
+			<section>
+				<div ng-controller="BooksDetailsCtrl">
+
+					<!-- Bei ng-bind wird der Inhalt erst beim fertiger Kompilierung angezeigt, so werden die Curly Brackets nie angezeigt :) -->
+					<h2 ng-bind="book.title"></h2>
+					<h3 ng-bind="book.subtitle"></h3>
+
+					<ul class="text-center">
+						<li ng-bind-template = "ISBN: {{book.isbn}}"></li>
+						<li ng-bind-template = "#Pages: {{book.numPages}}"></li>
+						<li ng-bind-template = "Author: {{book.author}}"></li>
+						<li>
+							<a ng-href="{{book.publisher.url}}" target="_blank">{{book.publisher.name}}</a>
+						</li>
+					</ul>
+
+					<div>
+						<hr>
+						<p ng-bind="book.abstract"></p>
+					</div>
+
+					<!-- mit ng-href wird der Link erst erzeugt, wenn die Expression ausgewertet wird -->
+				</div>
+			</section>
+
+		</div>
+
+		<script src="lib/angular/angular.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers/BookDetails.js"></script>
+	</body>
+</html>
