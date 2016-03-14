@@ -101,6 +101,30 @@ Router::scope("/api", function($routes){
 			"isbn" => "[0-9]+"
 		]
 	);
+
+	$routes->connect("/books/isbn/:isbn",
+		["controller" => "Books", "action" => "removeByISBN", "[method]" => "DELETE"],
+		[
+			"pass" => ["isbn"],
+			"isbn" => "[0-9]+"
+		]
+	);
+
+	$routes->connect("/books/isbn/:isbn",
+		["controller" => "Books", "action" => "updateByISBN", "[method]" => "PUT"],
+		[
+			"pass" => ["isbn"],
+			"isbn" => "[0-9]+"
+		]
+	);
+
+	$routes->connect("/books/isbn/:isbn",
+		["controller" => "Books", "action" => "updateByISBN", "[method]" => "POST"],
+		[
+			"pass" => ["isbn"],
+			"isbn" => "[0-9]+"
+		]
+	);
 });
 
 Plugin::routes();

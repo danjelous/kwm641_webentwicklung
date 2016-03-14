@@ -132,4 +132,37 @@ class BooksController extends AppController
 		 // Pls show the book as JSON, not a PHP array
 		 $this->set("_serialize", ["book"]);
 	 }
+
+	 public function removeByISBN() {
+
+		 $isbn = $this->request->params['pass'];
+
+		 // Darf nur mit POST und DELETE aufgerufen werden
+		 $this->request->allowMethod(["delete", "post"]);
+
+		 $book = $this->Books->find('all')
+			->where(["isbn LIKE" => $isbn[0] . "%"])->first();
+
+		 $this->Books->delete($book);
+
+		 $this->set("book", "Book with ISBN " . $isbn . " has been deleted successfully.");
+	 }
+
+	 public function updateByISBN() {
+		 $isbn = $this->request->params['pass'];
+		 $this->request->allowMethod(["put", "post"]);
+
+		 //$this->set("book", "Book with ISBN " . $isbn . " has been deleted successfully.");
+		 $this->set("book", "Bitch u got updated.");
+		 $this->set("_serialize", ["book"]);
+	 }
+
+	 public function createByISBN() {
+		 $isbn = $this->request->params['pass'];
+		 $this->request->allowMethod(["put", "post"]);
+
+		 //$this->set("book", "Book with ISBN " . $isbn . " has been deleted successfully.");
+		 $this->set("book", "Bitch u got created and posted.");
+		 $this->set("_serialize", ["book"]);
+	 }
 }
