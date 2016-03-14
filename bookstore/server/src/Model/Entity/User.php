@@ -3,6 +3,9 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
+// Add Security Class
+use Cake\Utility\Security;
+
 /**
  * User Entity.
  *
@@ -38,4 +41,10 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+
+	 // Override default with own Setter
+	 // Naming: _setDatabaseName
+	 public function _setPassword($value) {
+		 return Security::hash($value);
+	 }
 }
