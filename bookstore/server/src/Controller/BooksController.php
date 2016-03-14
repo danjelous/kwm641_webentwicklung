@@ -19,7 +19,7 @@ class BooksController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Publishers', 'Users']
+            'contain' => ['Publishers', 'Users', 'Tags']
         ];
         $books = $this->paginate($this->Books);
 

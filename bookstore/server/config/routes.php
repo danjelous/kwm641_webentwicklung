@@ -79,7 +79,7 @@ Router::scope('/', function (RouteBuilder $routes) {
  * how to customize the loading of plugin routes.
  */
 
-// Register JSON-Router for REST
+// Register JSON-Router for REST in /api scope
 Router::scope("/api", function($routes){
 	// Pls deliver jsons in /api/*.json
 	$routes->extensions(["json"]);
@@ -89,6 +89,18 @@ Router::scope("/api", function($routes){
 	$routes->resources("Users");
 	$routes->resources("Publishers");
 	$routes->resources("Tags");
+
+	/* Get books by ISBN
+		:isbn --> parameter
+		pass --> Parameter beim URL Aufruf an Methode weitergeben
+	*/
+	$routes->connect("/books/isbn/:isbn",
+		["controller" => "Books", "action" => "isbn", "[method]" => "GET"],
+		[
+			"pass" => ["isbn"],
+			"isbn" => "[0-9]+"
+		]
+	);
 });
 
 Plugin::routes();
