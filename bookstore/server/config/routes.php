@@ -78,4 +78,17 @@ Router::scope('/', function (RouteBuilder $routes) {
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
  */
+
+// Register JSON-Router for REST
+Router::scope("/api", function($routes){
+	// Pls deliver jsons in /api/*.json
+	$routes->extensions(["json"]);
+
+	// Assign Resources witch should be available
+	$routes->resources("Books");
+	$routes->resources("Users");
+	$routes->resources("Publishers");
+	$routes->resources("Tags");
+});
+
 Plugin::routes();
