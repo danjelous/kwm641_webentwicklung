@@ -120,13 +120,16 @@ class BooksController extends AppController
 		 // Get paramter-value from URL, which is stored in global array
 		 $isbn = $this->request->params['pass'];
 
-		 // Books --> Zugriff auf Books-Repository
-		 $book = $this->Books->find('all');
+		 // Books --> Zugriff auf Books-Repository (Model)
+		 // Alle ISBN-Nummern, di mit Teilstring beginnen
+		 $book = $this->Books->find('all')
+		 	->where(["isbn LIKE" => $isbn[0] . "%"])
+			->contain(["Publishers", "Users", "Tags"]);
 
-		 // Define View
+		// View-Variable für das serialoze angeben
 		 $this->set('book', $book);
 
-		 // Pls JSON
+		 // Pls show the book as JSON, not a PHP array
 		 $this->set("_serialize", ["book"]);
 	 }
 }
