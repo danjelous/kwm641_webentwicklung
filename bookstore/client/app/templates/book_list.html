@@ -1,3 +1,7 @@
+<input type="text" class="island" placeholder="Suchen ... " ng-model="searchText" />
+
+<hr class="islandDoubleBottom island border-black">
+
 <table class="bm-book-list">
 	<thead>
 		<h3>Look at dem sexy books</h3>
@@ -6,7 +10,7 @@
 	</thead>
 	<tbody>
 		<!-- Filter mit Pipe -->
-		<tr ng-repeat="book in books | orderBy: [book.subtitle]">
+		<tr ng-repeat="book in books | orderBy: [book.subtitle] | filter: searchText">
 			<td><a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></td>
 			<td><a ng-bind="book.author"></a></td>
 			<td><a ng-bind="book.isbn"></a></td>

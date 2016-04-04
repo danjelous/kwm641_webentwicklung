@@ -1,0 +1,3 @@
+bookstoreApp.factory("BookDataService", function(){
+	
+});
