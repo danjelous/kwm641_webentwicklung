@@ -1,0 +1,50 @@
+.root {
+	background-color: #DEA;
+}
+
+.island {
+	margin-top: 3rem;
+}
+
+.islandDouble {
+	margin-top: 6rem;
+}
+
+.islandBottom {
+	margin-bottom: 3rem;
+}
+
+.paddingBottom {
+	padding-bottom: 3rem;
+}
+
+.islandDoubleBottom {
+	margin-bottom: 6rem;
+}
+
+.paddingDoubleBottom {
+	padding-bottom: 6rem;
+}
+
+
+.bm-list-view-btn {
+	
+}
+
+
+
+.border-black {
+	border-top: 1px solid black;
+}
+
+.border-dark-grey {
+	border-top: 1px solid gray;
+}
+
+.border-grey {
+	border-top: 1px solid lightgrey;
+}
+
+.border-white {
+	border-top: 1px solid white;
+}

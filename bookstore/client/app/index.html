@@ -4,17 +4,10 @@
 		<meta charset="utf-8">
 		<title>Fancy KWM Bookstore</title>
 		<link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="styles/main.css" type="text/css">
 	</head>
 	<body>
 		<div class="root text-center">
-			<style>
-				.root { background-color: #DEA; }
-				.island { margin-top: 3rem; }
-				.islandDouble { margin-top: 6rem; }
-				.islandBottom { margin-bottom: 3rem; }
-				.islandDoubleBottom { margin-bottom: 6rem; }
-				.border-black { border-top: 1px solid black; }
-			</style>
 
 			<header>
 				<h1 class="island">Fancy, nasty Bookstore</h1>
@@ -23,17 +16,26 @@
 			<section>
 				<!-- Die ng-view Direktive wird dann je nach aufgerufener URL mit dem entsprechenden Partial/Component befüllt -->
 				<!-- zB bei /books/URL mit dem templates/book_details.html -->
-				<div ng-view>
+				<div class="container-fluid">
+					<div ng-view></div>
 				</div>
 			</section>
 
+			<footer>
+				<div class="container-fluid">
+					<hr class="border-dark-grey">
+					<h4 class="paddingDoubleBottom islandDouble">Danji Gaksi - UI Matters <3</h4>
+				</div>
+			</footer>
 		</div>
 
+		<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
 		<script src="lib/angular/angular.js"></script>
 		<script src="lib/angular-route/angular-route.js"></script>
 		<script src="scripts/app.js"></script>
 		<script src="scripts/controllers/BookList.js"></script>
 		<script src="scripts/controllers/BookDetails.js"></script>
 		<script src="scripts/services/book_data.js"></script>
+		<script src="scripts/services/constants.js"></script>
 	</body>
 </html>

@@ -2,6 +2,9 @@ bookstoreApp.factory("BookDataService", function(){
 
 	var srv = {};
 
+	// URL to our REST-Service
+	srv._baseURL = CONFIG.serverURL;
+
 	srv._books =
 	[
 		{
