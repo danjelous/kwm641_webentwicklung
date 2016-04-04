@@ -42,6 +42,10 @@ bookstoreApp.config(function($routeProvider){
 		templateUrl: "templates/book_list.html",
 		controller: "AdminBookListCtrl"
 	})
+	.when("/admin/books/:isbn/delete", {
+		templateUrl: "templates/admin/book_delete.html",
+		controller: "AdminDeleteBookCtrl"
+	})
 	.otherwise({
 		// Default, wenn keine Route matched
 		redirectTo: "/books"

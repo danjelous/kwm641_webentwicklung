@@ -12,4 +12,6 @@ bookstoreApp.controller("BookListCtrl", function($scope, BookDataService){
 		function($error){
 			// Promise failed
 		});
+
+		$scope.isAdmin = false;
 });

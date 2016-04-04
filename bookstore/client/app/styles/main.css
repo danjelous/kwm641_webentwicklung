@@ -1,3 +1,9 @@
+/* Bootstrap override */
+.container-fluid {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 .root {
 	background-color: white;
 }
