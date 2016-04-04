@@ -1,19 +1,9 @@
 "use strict";
 
-bookstoreApp.controller("BookDetailsCtrl", function($scope, $routeParams){
+// Insert BookDataService (Dependency Injection)
+bookstoreApp.controller("BookDetailsCtrl", function($scope, $routeParams, BookDataService){
 
-	$scope.book = getBook();
-
-	function getBook() {
-
-		// Get ISBN from current URL
-		var currentIsbn = $routeParams.isbn;
-
-		// Access scope from parent Ctrl
-		for (var i = 0; i < $scope.books.length; i++) {
-			if ($scope.books[i].isbn == currentIsbn) {
-				return $scope.books[i];
-			}
-		}
-	}
+	// Get our books from the service to keep our controller free from data
+	var currentIsbn = $routeParams.isbn;
+	$scope.book = BookDataService.getBookByIsbn(currentIsbn);
 });
