@@ -1,7 +1,7 @@
 "use strict";
 
 // Insert BookDataService (Dependency Injection)
-bookstoreApp.controller("BookListCtrl", function($scope, BookDataService){
+bookstoreApp.controller("AdminBookListCtrl", function($scope, $location, BookDataService){
 
 	// Get our books from the service to keep our controller free from data
 	$scope.books = BookDataService.getBooks().then(
@@ -12,4 +12,7 @@ bookstoreApp.controller("BookListCtrl", function($scope, BookDataService){
 		function($error){
 			// Promise failed
 		});
+
+		// Show me dat admin area!
+		$scope.isAdmin = true;
 });

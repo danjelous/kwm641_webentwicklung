@@ -21,6 +21,10 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 		return $http.get(srv._baseURL + "/api/books/isbn/" + isbn + ".json");
 	}
 
+	srv.deleteBookByIsbn = function(isbn) {
+		return $http.delete(srv._baseURL + "/api/books/isbn" + isbn ".json");
+	}
+
 	/**
 	 * MODULE PATTERN - can be seen as a "class" in Java
 	 * ONLY expose things we want, keep our other Stuff private (Prefix with _)
@@ -30,11 +34,14 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 		getBookByIsbn : function(isbn) {
 			return srv.getBookByIsbn(isbn)
 		},
-		getBooks : function(){
+		getBooks : function() {
 			return srv.getBooks();
 		},
-		storeBook : function(book){
+		storeBook : function(book) {
 			return srv.storeBook(book);
+		},
+		deleteBookByIsbn : function(isbn) {
+			return srv.deleteBookByIsbn(isbn)
 		}
 	}
 

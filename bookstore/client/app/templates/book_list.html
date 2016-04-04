@@ -1,4 +1,9 @@
 <div class="row">
+
+	<div ng-show="isAdmin" class="text-center">
+		<h2>Admin Area</h2>
+	</div>
+
 	<div class="text-center">
 			<input type="text" class="island text-center" placeholder="Suchen" ng-model="searchText" />
 			<hr class="islandDoubleBottom island border-black">
@@ -9,20 +14,30 @@
 	<div class="col-md-6 col-md-offset-3">
 		<h2 class="islandBottom">Look at dem sexy books:</h2>
 	</div>
+</div>
 
-	<div class="row">
+<div class="row">
 
-		<!-- Filter mit Pipe -->
-		<div class="col-md-6 col-md-offset-3 col-sm-offset-1" ng-repeat="book in books | orderBy: [book.subtitle] | filter: searchText">
-			<h4><a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></h4>
+	<!-- Filter mit Pipe -->
+	<div class="col-md-6 col-md-offset-3 col-sm-offset-1" ng-repeat="book in books | orderBy: [book.subtitle] | filter: searchText">
 
-			<h5 class="no-space-bottom">Author</h5>
-			<p ng-bind="book.author"></p>
+		<h4><a ng-hide="isAdmin" ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></h4>
+		<h4><a ng-show"isAdmin" ng-href="#/books/{{book.isbn}}/edit" ng-bind="book.title"></a></h4>
 
-			<h5 class="no-space-bottom">ISBN</h5>
-			<p ng-bind="book.isbn"></p>
-			<hr class="border-grey islandBottom">
-		</div>
+		<h5 class="no-space-bottom">Author</h5>
+		<p ng-bind="book.author"></p>
 
+		<h5 class="no-space-bottom">ISBN</h5>
+		<p ng-bind="book.isbn"></p>
+
+		<h4><a ng-show"isAdmin" ng-href="#/books/{{book.isbn}}/delete" class="btn btn-danger">Löschen</a></h4>
+
+		<hr class="border-grey islandBottom">
 	</div>
+</div>
+
+<div class="row">
+	<p ng-show="isAdmin">
+		<h4><a ng-show"isAdmin" ng-href="#/books/new" class="btn btn-error">Neues Buch anlegen</a></h4>
+	</p>
 </div>

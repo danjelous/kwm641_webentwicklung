@@ -38,6 +38,10 @@ bookstoreApp.config(function($routeProvider){
 		templateUrl: "templates/book_list.html",
 		controller: "BookListCtrl"
 	})
+	.when("/admin/books", {
+		templateUrl: "templates/book_list.html",
+		controller: "AdminBookListCtrl"
+	})
 	.otherwise({
 		// Default, wenn keine Route matched
 		redirectTo: "/books"
