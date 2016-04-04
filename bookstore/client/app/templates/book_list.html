@@ -30,12 +30,13 @@
 		<h5 class="no-space-bottom">ISBN</h5>
 		<p ng-bind="book.isbn"></p>
 
-		<h4><a ng-show="isAdmin" ng-href="#/admin/books/{{book.isbn}}/delete" class="btn btn-danger">Löschen</a></h4>
+		<a ng-show="isAdmin" ng-href="#/admin/books/{{book.isbn}}/delete" class="btn btn-danger">Löschen</a>
+		<a ng-show="isAdmin" ng-href="#/admin/books/{{book.isbn}}/edit" class="btn btn-info">Editieren</a>
 
 		<hr class="border-grey islandBottom">
 	</div>
 </div>
 
 <div class="row text-center" ng-show="isAdmin">
-	<h4><a ng-href="#/books/new" class="btn btn-success">Neues Buch anlegen</a></h4>
+	<h4><a ng-href="#/admin/books/new" class="btn btn-success">Neues Buch anlegen</a></h4>
 </div>
