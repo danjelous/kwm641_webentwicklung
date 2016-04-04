@@ -22,7 +22,7 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 	}
 
 	srv.deleteBookByIsbn = function(isbn) {
-		return $http.delete(srv._baseURL + "/api/books/isbn" + isbn + ".json");
+		return $http.delete(srv._baseURL + "api/books/isbn/" + isbn + ".json");
 	}
 
 	/**

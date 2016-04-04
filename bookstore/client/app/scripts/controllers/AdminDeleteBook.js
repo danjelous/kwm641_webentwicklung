@@ -21,4 +21,16 @@ bookstoreApp.controller("AdminDeleteBookCtrl", function($scope, $routeParams, $l
 		goToAdminListView();
 	}
 
+	$scope.deleteBook = function(isbn) {
+		BookDataService.deleteBookByIsbn(isbn).then(
+			function(){
+				// Ok
+				goToAdminListView();
+			},
+			function($error){
+				console.log("Error occured! :(<br>" + $error);
+			}
+		);
+	}
+
 });
