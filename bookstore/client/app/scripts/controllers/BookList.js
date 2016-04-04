@@ -1,6 +1,6 @@
 "use strict";
 
-bookstoreApp.controller("BookListCtrl", function($scope){
+bookstoreApp.controller("BookListCtrl", function($scope, $routeParams){
 
 	$scope.books =
 	[

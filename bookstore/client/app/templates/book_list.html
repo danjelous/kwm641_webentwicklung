@@ -6,7 +6,7 @@
 	</thead>
 	<tbody>
 		<!-- Filter mit Pipe -->
-		<tr ng-repeat="book in books | orderBy: [title.subtitle]">
+		<tr ng-repeat="book in books | orderBy: [book.subtitle]">
 			<td><a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></td>
 			<td><a ng-bind="book.author"></a></td>
 			<td><a ng-bind="book.isbn"></a></td>
