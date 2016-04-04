@@ -25,7 +25,11 @@ bookstoreApp.controller("AdminEditBookCtrl", function($scope, $location, $routeP
 	}
 
 	$scope.submitAction = function() {
-		BookDataService.storeBook($scope.book).then(
+
+		// Some Remapping i don't get
+		$scope.book.publisher_id = $scope.book.publisher.id;
+
+		BookDataService.updateBook($scope.book).then(
 			function($res){
 				goToAdminListView();
 			},

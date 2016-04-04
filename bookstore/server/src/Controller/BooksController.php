@@ -152,8 +152,13 @@ class BooksController extends AppController
 		 $isbn = $this->request->params['pass'];
 		 $this->request->allowMethod(["put", "post"]);
 
-		 //$this->set("book", "Book with ISBN " . $isbn . " has been deleted successfully.");
-		 $this->set("book", "Bitch u got updated.");
+		 if($this->request->is("put")) {
+			 $book = $this->Books->findByIsbn($isbn[0])->first();
+			 $this->Books->patchEntity($book, $this->request->data);
+			 $this->Books->save($book);
+		 }
+
+		 $this->set("book", $book);
 		 $this->set("_serialize", ["book"]);
 	 }
 
@@ -162,7 +167,7 @@ class BooksController extends AppController
 		 $this->request->allowMethod(["post"]);
 
 		 //$this->set("book", "Book with ISBN " . $isbn . " has been deleted successfully.");
-		 $this->set("book", "Bitch u got created and posted.");
+		 $this->set("book", "Book successfull created.");
 		 $this->set("_serialize", ["book"]);
 	 }
 }
