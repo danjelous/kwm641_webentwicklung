@@ -1,7 +1,5 @@
 # Fancy nasty Bookstore
 
-Klonen und Deployment neu setzen.
-
-File "remote-sync" ist ein Deployment-File des Atom, entsprechend nach PHPStorm ändern.
+Klonen und Deployment für die IDE deines Vertrauens neu setzen.
 
 Crafted with <3
