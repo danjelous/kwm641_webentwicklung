@@ -3,6 +3,7 @@
 bookstoreApp.controller("AdminNewBookCtrl", function($scope, $location, BookDataService){
 
 	$scope.book = {};
+	$scope.isEditMode = false;
 	$scope.submitBtnLabel = "Neues Buch anlegen";
 
 	// load publisher list from REST
@@ -24,7 +25,14 @@ bookstoreApp.controller("AdminNewBookCtrl", function($scope, $location, BookData
 	}
 
 	$scope.submitAction = function() {
-		console.log("crash");
+		BookDataService.storeBook($scope.book).then(
+			function($res){
+				goToAdminListView();
+			},
+			function($error){
+				console.log($error);
+			}
+		);
 	}
 
 });

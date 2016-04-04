@@ -1,7 +1,7 @@
-<h2 class="text-center">Admin Area</h2>
+<h2 class="text-center islandBottom">Admin Area</h2>
 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-6">
 		<h3 ng-hide="isEditMode">Neues Buch anlegen</h3>
 		<h3 ng-show="isEditMode">Buch editieren</h3>
 
@@ -47,7 +47,7 @@
 			 <div class="form-group" ng-class="{'has-error has-feedback': bookForm.numPages.$dirty && bookForm.numPages.$invalid, 'has-success has-feedback':bookForm.numPages.$dirty && bookForm.numPages.$valid}">
 				  <label class="control-label" for="numPages">Seiten</label>
 				  <input type="number" min="1" placeholder="Seiten..." id="numPages" class="form-control"
-					  ng-model="book.num_pages" name="numPages" required aria-describedby="inputError3Status inputError4Status">
+					  ng-model="book.numPages" name="numPages" required aria-describedby="inputError3Status inputError4Status">
 				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-if="bookForm.numPages.$dirty && bookForm.numPages.$valid"></span>
 				  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-if="bookForm.numPages.$dirty && bookForm.numPages.$invalid"></span>
 			 <span ng-show="bookForm.numPages.$dirty && bookForm.numPages.$invalid">
@@ -95,4 +95,12 @@
 
 		</form>
 	</div>
+
+	<div class="col-md-6">
+		<h3>Vorschau</h3>
+		<div class="simple-border padded" ng-include="'templates/book_details.html'">
+
+		</div>
+	</div>
+
 </div>
