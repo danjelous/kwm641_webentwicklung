@@ -5,6 +5,10 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 	// URL to our REST-Service
 	srv._baseURL = CONFIG.serverURL;
 
+	srv.storeBook = function(book){
+		$http.post(srv._baseURL + "/api/books", book);
+	}
+
 	srv.getBooks = function(){
 
 		// Get the json-Result from our REST-Service
@@ -28,6 +32,9 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 		},
 		getBooks : function(){
 			return srv.getBooks();
+		},
+		storeBook : function(book){
+			return srv.storeBook(book);
 		}
 	}
 

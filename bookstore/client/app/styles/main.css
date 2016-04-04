@@ -1,5 +1,5 @@
 .root {
-	background-color: #FF69B4;
+	background-color: white;
 }
 
 .island {
@@ -26,10 +26,13 @@
 	padding-bottom: 6rem;
 }
 
-
 .no-space-bottom {
 	margin-bottom: 0;
 	padding-bottom: 0;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0;
 }
 
 
@@ -48,4 +51,8 @@
 
 .border-white {
 	border-top: 1px solid white;
+}
+
+footer {
+	background: #EFEFEF;
 }
