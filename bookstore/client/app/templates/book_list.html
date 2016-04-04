@@ -1,19 +1,27 @@
-<input type="text" class="island" placeholder="Suchen ... " ng-model="searchText" />
+<div class="container-fluid">
+	<div class="row">
+		<input type="text" class="island" placeholder="Suchen ... " ng-model="searchText" />
 
-<hr class="islandDoubleBottom island border-black">
+		<hr class="islandDoubleBottom island border-black">
+	</div>
 
-<table class="bm-book-list">
-	<thead>
-		<h3>Look at dem sexy books</h3>
-		<h2 class="islandDouble islandDoubleBottom">..</h2>
-		<h2>LOOK AT THEM!</h2>
-	</thead>
-	<tbody>
-		<!-- Filter mit Pipe -->
-		<tr ng-repeat="book in books | orderBy: [book.subtitle] | filter: searchText">
-			<td><a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></td>
-			<td><a ng-bind="book.author"></a></td>
-			<td><a ng-bind="book.isbn"></a></td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h3>Look at dem sexy books</h3>
+			<h2 class="islandDouble islandDoubleBottom">..</h2>
+			<h2>LOOK AT THEM!</h2>
+		</div>
+
+		<div class="row">
+
+			<!-- Filter mit Pipe -->
+			<div class="col-md-6 col-md-offset-3" ng-repeat="book in books | orderBy: [book.subtitle] | filter: searchText">
+				<h4><a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></h4>
+				<h5 ng-bind="book.author"></h5>
+				<h5 ng-bind="book.isbn"></h5>
+				<hr class="border-black islandBottom">
+			</div>
+
+		</div>
+	</div>
+</div>
