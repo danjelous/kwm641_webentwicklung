@@ -5,8 +5,11 @@
 		<h2 class="islandDouble">LOOK AT THEM!</h2>
 	</thead>
 	<tbody>
-		<tr ng-repeat="book in books">
-			<td><a ng-bind="book.title"></a></td>
+		<!-- Filter mit Pipe -->
+		<tr ng-repeat="book in books | orderBy: [title.subtitle]">
+			<td><a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a></td>
+			<td><a ng-bind="book.author"></a></td>
+			<td><a ng-bind="book.isbn"></a></td>
 		</tr>
 	</tbody>
 </table>
