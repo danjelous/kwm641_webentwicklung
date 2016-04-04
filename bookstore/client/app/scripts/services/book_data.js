@@ -1,68 +1,20 @@
-bookstoreApp.factory("BookDataService", function(){
+bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 
 	var srv = {};
 
 	// URL to our REST-Service
 	srv._baseURL = CONFIG.serverURL;
 
-	srv._books =
-	[
-		{
-				title   	: 'JavaScript für Enterprise-Entwickler 1',
-				subtitle	: 'Professionell programmieren im Browser und auf dem Server',
-				isbn    	: '978-3-89864-728-1',
-				abstract	: 'JavaScript ist längst nicht mehr nur für klassische Webprogrammierer interessant.',
-				numPages	: 302,
-				author  	: 'Oliver Ochs',
-				publisher   : {
-					name: 'dpunkt.verlag',
-					url : 'http://dpunkt.de/'
-				}
-		},
-		{
-				title   	: 'JavaScript für Enterprise-Entwickler 2',
-				subtitle	: 'Professionell programmieren im Browser und auf dem Server',
-				isbn    	: '978-3-89864-728-2',
-				abstract	: 'JavaScript ist längst nicht mehr nur für klassische Webprogrammierer interessant.',
-				numPages	: 302,
-				author  	: 'Oliver Ochs',
-				publisher   : {
-					name: 'dpunkt.verlag',
-					url : 'http://dpunkt.de/'
-				}
-		},
-		{
-				title   	: 'JavaScript für Enterprise-Entwickler 3',
-				subtitle	: 'Professionell programmieren im Browser und auf dem Server',
-				isbn    	: '978-3-89864-728-3',
-				abstract	: 'JavaScript ist längst nicht mehr nur für klassische Webprogrammierer interessant.',
-				numPages	: 302,
-				author  	: 'Oliver Ochs',
-				publisher   : {
-					name: 'dpunkt.verlag',
-					url : 'http://dpunkt.de/'
-				}
-		}
-	];
-
 	srv.getBooks = function(){
 
-		// Return a copy of the local JSON
-		return angular.copy(srv._books);
+		// Get the json-Result from our REST-Service
+		return $http.get(srv._baseURL + "/api/books.json");
 	}
 
 	srv.getBookByIsbn = function(isbn) {
 
-		for (var i = 0; i < srv._books.length; i++) {
-			if (srv._books[i].isbn == isbn) {
-
-				// Copy to ensure, that our current value doesn't get changed from other interactions
-				return angular.copy(srv._books[i]);
-			}
-		}
-
-		// Nothing found =/
-		return null;
+		// Call REST Service
+		return $http.get(srv._baseURL + "/api/books/isbn/" + isbn + ".json");
 	}
 
 	/**

@@ -1,5 +1,5 @@
 .root {
-	background-color: #DEA;
+	background-color: #FF69B4;
 }
 
 .island {
@@ -27,8 +27,9 @@
 }
 
 
-.bm-list-view-btn {
-	
+.no-space-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 
