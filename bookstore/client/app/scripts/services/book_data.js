@@ -64,16 +64,19 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 			return srv.updateBook(book);
 		},
 		deleteBookByIsbn : function(isbn) {
-			return srv.deleteBookByIsbn(isbn)
+			return srv.deleteBookByIsbn(isbn);
 		},
 		getPublishers : function() {
-			return srv.getPublishers()
+			return srv.getPublishers();
+		},
+		getPublisherById: function(id){
+			return srv.getPublisherById(id);
 		},
 		storePublisher : function(publisher) {
-			return srv.storePublisher(publisher)
+			return srv.storePublisher(publisher);
 		},
 		updatePublisher : function(publisher) {
-			return srv.updatePublisher(publisher)
+			return srv.updatePublisher(publisher);
 		}
 	}
 
