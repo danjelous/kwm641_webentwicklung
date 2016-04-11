@@ -33,6 +33,18 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 		return $http.get(srv._baseURL + "api/publishers.json")
 	}
 
+	srv.getPublisherById = function(id) {
+		return $http.get(srv._baseURL + "api/publishers/" + id + ".json")
+	}
+
+	srv.storePublisher = function(publisher){
+		return $http.post(srv._baseURL + "/api/publishers", publisher);
+	}
+
+	srv.updatePublisher = function(publisher) {
+		return $http.put(srv._baseURL + "api/publishers/" + publisher.id + ".json", publisher)
+	}
+
 	/**
 	 * MODULE PATTERN - can be seen as a "class" in Java
 	 * ONLY expose things we want, keep our other Stuff private (Prefix with _)
@@ -56,6 +68,12 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 		},
 		getPublishers : function() {
 			return srv.getPublishers()
+		},
+		storePublisher : function(publisher) {
+			return srv.storePublisher(publisher)
+		},
+		updatePublisher : function(publisher) {
+			return srv.updatePublisher(publisher)
 		}
 	}
 
