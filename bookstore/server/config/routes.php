@@ -125,6 +125,27 @@ Router::scope("/api", function($routes){
 			"isbn" => "[0-9]+"
 		]
 	);
+
+	$routes->connect("/login",
+		[
+			"controller" => "Login",
+			"action" => "index",
+			"[method]" => "POST"
+		],
+		[
+			"controller" => "Login",
+			"action" => "logout",
+			"[method]" => "DELETE"
+		]
+	);
+});
+
+// If we are not authorized or logged in, call the given Mathods in the Pages Controller
+// Gets called everytime a page gets loaded
+Router::scope("/", ["controller" => "Pages"], function($routes){
+	$routes->extensions("json");
+	$routes->connect("/forbidden", ["action" => "forbidden"]);
+	$routes->connect("/unauthorized", ["action" => "unauthorized"]);
 });
 
 Plugin::routes();

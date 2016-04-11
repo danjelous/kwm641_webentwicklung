@@ -43,6 +43,9 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+		  // Init-method, gets executed everytime a page gets reloaded
+		  $this->loadComponent('Auth');
     }
 
     /**
