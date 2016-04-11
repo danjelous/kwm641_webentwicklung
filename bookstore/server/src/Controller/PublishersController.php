@@ -72,7 +72,7 @@ class PublishersController extends AppController
     public function edit($id = null)
     {
         $publisher = $this->Publishers->get($id, [
-            'contain' => []
+            'contain' => ['Books']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $publisher = $this->Publishers->patchEntity($publisher, $this->request->data);

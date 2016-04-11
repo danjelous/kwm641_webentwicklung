@@ -44,17 +44,17 @@
 				  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-if="bookForm.abstract.$dirty && bookForm.abstract.$invalid"></span>
 			 </div>
 
-			 <div class="form-group" ng-class="{'has-error has-feedback': bookForm.numPages.$dirty && bookForm.numPages.$invalid, 'has-success has-feedback':bookForm.numPages.$dirty && bookForm.numPages.$valid}">
-				  <label class="control-label" for="numPages">Seiten</label>
-				  <input type="number" min="1" placeholder="Seiten..." id="numPages" class="form-control"
-					  ng-model="book.numPages" name="numPages" required aria-describedby="inputError3Status inputError4Status">
-				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-if="bookForm.numPages.$dirty && bookForm.numPages.$valid"></span>
-				  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-if="bookForm.numPages.$dirty && bookForm.numPages.$invalid"></span>
-			 <span ng-show="bookForm.numPages.$dirty && bookForm.numPages.$invalid">
-				  <span id="inputError3Status" ng-show="bookForm.numPages.$error.min" class="help-block">
+			 <div class="form-group" ng-class="{'has-error has-feedback': bookForm.num_pages.$dirty && bookForm.num_pages.$invalid, 'has-success has-feedback':bookForm.num_pages.$dirty && bookForm.num_pages.$valid}">
+				  <label class="control-label" for="num_pages">Seiten</label>
+				  <input type="number" min="1" placeholder="Seiten..." id="num_pages" class="form-control"
+					  ng-model="book.num_pages" name="num_pages" required aria-describedby="inputError3Status inputError4Status">
+				  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-if="bookForm.num_pages.$dirty && bookForm.num_pages.$valid"></span>
+				  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-if="bookForm.num_pages.$dirty && bookForm.num_pages.$invalid"></span>
+			 <span ng-show="bookForm.num_pages.$dirty && bookForm.num_pages.$invalid">
+				  <span id="inputError3Status" ng-show="bookForm.num_pages.$error.min" class="help-block">
 						Das Buch muss min. eine Seite enthalten.
 				  </span>
-				  <span id="inputError4Status" ng-hide="bookForm.numPages.$error.min" class="help-block">
+				  <span id="inputError4Status" ng-hide="bookForm.num_pages.$error.min" class="help-block">
 						Bitte geben Sie eine gültige Seitenzahl ein.
 				  </span>
 			 </span>
@@ -98,6 +98,7 @@
 
 	<div class="col-md-6">
 		<h3>Vorschau</h3>
+		<!-- View mit ng-include ausgeben -->
 		<div class="simple-border padded" ng-include="'templates/book_details.html'">
 
 		</div>

@@ -12,7 +12,7 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 	srv.getBooks = function(){
 
 		// Get the json-Result from our REST-Service
-		return $http.get(srv._baseURL + "/api/books.json");
+		return $http.get(srv._baseURL + "api/books.json");
 	}
 
 	srv.updateBook = function(book) {
@@ -22,7 +22,7 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 	srv.getBookByIsbn = function(isbn) {
 
 		// Call REST Service
-		return $http.get(srv._baseURL + "/api/books/isbn/" + isbn + ".json");
+		return $http.get(srv._baseURL + "api/books/isbn/" + isbn + ".json");
 	}
 
 	srv.deleteBookByIsbn = function(isbn) {

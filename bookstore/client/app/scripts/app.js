@@ -54,6 +54,18 @@ bookstoreApp.config(function($routeProvider){
 		templateUrl: "templates/admin/book_form.html",
 		controller: "AdminNewBookCtrl"
 	})
+	.when("/admin/publishers", {
+		templateUrl: "templates/admin/publisher_list.html",
+		controller: "PublisherListCtrl"
+	})
+	.when("/admin/publishers/new", {
+		templateUrl: "templates/admin/publisher_form.html",
+		controller: "AdminNewPublisherCtrl"
+	})
+	.when("/admin/publishers/:id/edit", {
+		templateUrl: "templates/admin/publisher_form.html",
+		controller: "AdminEditPublisherCtrl"
+	})
 	.otherwise({
 		// Default, wenn keine Route matched
 		redirectTo: "/books"
