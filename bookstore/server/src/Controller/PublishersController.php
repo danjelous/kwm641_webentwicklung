@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Publishers Controller
@@ -10,6 +11,14 @@ use App\Controller\AppController;
  */
 class PublishersController extends AppController
 {
+
+		// Filter which gets exectued before everything else gets executed in this controller
+		public function beforeFilter(Event $event){
+			parent::beforeFilter($event);
+
+			// Allow anonymous call of these actions
+			$this->Auth->allow(["index", "view"]);
+		}
 
     /**
      * Index method
