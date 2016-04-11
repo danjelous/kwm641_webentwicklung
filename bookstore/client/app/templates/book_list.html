@@ -1,9 +1,24 @@
-<div class="row">
+<!-- Login -->
+<div id="navbar" class="navbar-collapse collapse">
+   <form class="navbar-form navbar-right" ng-submit="login()" ng-controller="LoginCtrl" ng-show="!loggedIn">
+       <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+       <div class="form-group">
+           <input type="text" placeholder="User" class="form-control" ng-model="username">
+       </div>
+       <div class="form-group">
+           <input type="password" placeholder="Password" class="form-control" ng-model="password">
+       </div>
+       <input type="submit" class="btn btn-success" value="Login">
+   </form>
+   <p><a href="#/books" class="btn btn-primary" ng-click="logout()" ng-controller="LoginCtrl" ng-show="loggedIn">Logout</a></p>
+</div>
 
+
+
+<div class="row">
 	<div ng-show="isAdmin" class="text-center">
 		<h2>Admin Area</h2>
 	</div>
-
 	<div class="text-center">
 			<input type="text" class="island text-center" placeholder="Suchen" ng-model="searchText" />
 			<hr class="islandDoubleBottom island border-black">
