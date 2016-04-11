@@ -56,4 +56,13 @@ class LoginController extends AppController {
 
 	}
 
+	public function logout() {
+
+		// Reset current user context
+		$this->Auth->logout();
+
+		$this->set("message", "Logout successfull!");
+		$this->set("_serialize", ["message"]);
+	}
+
 }
