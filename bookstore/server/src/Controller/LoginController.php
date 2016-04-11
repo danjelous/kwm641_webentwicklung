@@ -1,6 +1,14 @@
 <?php
 
 namespace App\Controller;
+use App\Controller\AppController;
+use Cake\Core\Configure;
+use Cake\Network\Exception\InternalErrorException;
+use Cake\Network\Exception\UnauthorizedException;
+use Cake\Event\Event;
+use Cake\Utility\Text;
+use Cake\Utility\Security;
+use Cake\Auth\DefaultPasswordHasher;
 
 class LoginController extends AppController {
 
@@ -13,17 +21,17 @@ class LoginController extends AppController {
 	public function beforeFilter(Event $event) {
 		parent::beforeFilter($event);
 
-		$this->allow(["index", "logout"]);
+		$this->Auth->allow(["index", "logout"]);
 	}
 
 	public function index() {
 		try {
 
-			if(!isset($this->request->data('username'))) {
+			if(!isset($this->request->data['username'])) {
 				throw new UnauthorizedException("Please enter username!");
 			}
 
-			if(!isset($this->request->data('password'))) {
+			if(!isset($this->request->data['password'])) {
 				throw new UnauthorizedException("Please enter password!");
 			}
 
@@ -52,7 +60,7 @@ class LoginController extends AppController {
 
 		// Give it back to the requester :)
 		$this->set("user", $this->Auth->user());
-		$this->("_serialize", ["user"]);
+		$this->set("_serialize", ["user"]);
 
 	}
 

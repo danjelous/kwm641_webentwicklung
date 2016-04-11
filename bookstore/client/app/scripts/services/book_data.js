@@ -6,7 +6,7 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 	srv._baseURL = CONFIG.serverURL;
 
 	srv.storeBook = function(book){
-		return $http.post(srv._baseURL + "/api/books", book);
+		return $http.post(srv._baseURL + "api/books", book);
 	}
 
 	srv.getBooks = function(){
@@ -38,7 +38,7 @@ bookstoreApp.factory("BookDataService", function($http, $rootScope, CONFIG){
 	}
 
 	srv.storePublisher = function(publisher){
-		return $http.post(srv._baseURL + "/api/publishers", publisher);
+		return $http.post(srv._baseURL + "api/publishers", publisher);
 	}
 
 	srv.updatePublisher = function(publisher) {

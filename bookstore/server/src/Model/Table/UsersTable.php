@@ -73,7 +73,7 @@ class UsersTable extends Table
     }
 
 	 // Custom function to get login from user
-	 public function findLogin(Query $_query, array $options) {
+	 public function findLogin(Query $query, array $options) {
 		 return $query->where($options)->first();
 	 }
 }

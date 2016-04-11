@@ -2,14 +2,14 @@
     'use strict';
 
     // var baseUrl = "http://schoenboeck.kwmhgb.at/bookstore/server/bsServer"
-    //var baseUrl = "http://putz.kwmhgb.at/kwm-ba/06-sem/webprog/bookstore/bsServer"
+     var baseUrl = "http://s1310456002.student.kwmhgb.at/bookstore/server/";
 
 
     bookstoreApp.factory('AuthenticationService', AuthenticationService);
 
     AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout','CONFIG'];
     function AuthenticationService($http, $cookieStore, $rootScope, $timeout, CONFIG) {
-        var baseUrl = CONFIG.serverURL;
+       // var baseUrl = CONFIG.serverURL;
         var service = {};
 
         service.Login = Login;
@@ -31,7 +31,7 @@
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            $http.post(baseUrl+'/api/login.json', { username: username, password: password })
+            $http.post(baseUrl+'api/login.json', { username: username, password: password })
                 .success(function (response,status, headers) {
                     if(response.user != null){
                         SetCredentials(username,password);
